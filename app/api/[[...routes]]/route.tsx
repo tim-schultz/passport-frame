@@ -18,7 +18,7 @@ const app = new Frog({
 
 app.frame('/', (c) => {
   const { buttonValue, inputText, status } = c
-  const fruit = inputText || buttonValue
+  const token = inputText || buttonValue
   return c.res({
     image: (
       <div
@@ -51,16 +51,17 @@ app.frame('/', (c) => {
           }}
         >
           {status === 'response'
-            ? `Nice choice.${fruit ? ` ${fruit.toUpperCase()}!!` : ''}`
+            ? `Nice choice.${token ? ` ${token.toUpperCase()}!!` : ''}`
             : 'Welcome!'}
         </div>
       </div>
     ),
     intents: [
-      <TextInput placeholder="Enter custom fruit..." />,
-      <Button value="apples">Apples</Button>,
-      <Button value="oranges">Oranges</Button>,
-      <Button value="bananas">Bananas</Button>,
+      // <TextInput placeholder="Enter custom fruit..." />,
+      // <Button value="apples">Apples</Button>,
+      // <Button value="oranges">Oranges</Button>,
+      // <Button value="bananas">Bananas</Button>,
+      <Button value="BTC">Feeling Lucky?</Button>,
       status === 'response' && <Button.Reset>Reset</Button.Reset>,
     ],
   })
